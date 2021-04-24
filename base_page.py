@@ -28,5 +28,8 @@ class BasePage:
     def perform(self):
         self.action.perform()
 
+    def wait_page_load(self, old_url, time=10):
+        WebDriverWait(self.driver, time).until(EC.url_changes(old_url))
+
     def close(self):
         self.driver.close()

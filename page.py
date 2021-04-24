@@ -29,7 +29,7 @@ class OsagoCalcPage(BasePage):
         element = self.find_element(OsagoCalcLocator.CATEGORY_SELECTOR)
         Select(element).select_by_value(category)
 
-    def insert_car_brand(self, brand):
+    def insert_brand(self, brand):
         self.find_element(OsagoCalcLocator.CAR_BRAND).send_keys(brand)
 
     def insert_car_model(self, model):
@@ -46,4 +46,6 @@ class OsagoCalcPage(BasePage):
         self.action.send_keys("\ue015")
         self.action.pause(1).perform()
         element = self.find_element(OsagoCalcLocator.NEXT_BUTTON)
+        url = self.driver.current_url
         element.click()
+        self.wait_page_load(url)
