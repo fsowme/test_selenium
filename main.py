@@ -22,7 +22,8 @@ options = Options()
 options.add_argument("--disable-notifications")
 
 
-def alfa_test(url=URL, vehicle_data=VEHICLE_DATA):
+def alfa_test(url=URL, vehicle_data=None):
+    vehicle_data = VEHICLE_DATA if vehicle_data is None else vehicle_data
     with Chrome(options=options) as driver:
 
         # Actions on main page
