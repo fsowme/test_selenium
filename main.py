@@ -24,12 +24,15 @@ options.add_argument("--disable-notifications")
 
 def alfa_test(url=URL, vehicle_data=VEHICLE_DATA):
     with Chrome(options=options) as driver:
+
+        # Actions on main page
         alfa_mainpage = MainPage(driver, url)
         alfa_mainpage.open_page()
         alfa_mainpage.close_cookies()
         alfa_mainpage.activate_car_block()
         alfa_mainpage.goto_osago_calc()
 
+        # Actions on calc page
         alfa_osago_page = OsagoCalcPage(driver, driver.current_url)
         alfa_osago_page.insert_license_plate(
             vehicle_data["license_number"], vehicle_data["region"]
