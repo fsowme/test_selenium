@@ -1,4 +1,3 @@
-## Тестовое для АО "АльфаСтрахование"
 ### Запуск
 ```
 git clone git@github.com:fsowme/test_alfa_selenium.git
